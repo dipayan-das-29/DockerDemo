@@ -12,7 +12,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>dockerDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>dockerDemo</name>
 	<description>Demo project for Docker</description>
 	<url />
