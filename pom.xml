@@ -44,6 +44,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+			<version>42.7.3</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -69,6 +70,12 @@
 	</dependencies>
 
 	<build>
+	<resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+        </resource>
+    </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -84,5 +91,31 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<profiles>
+    <profile>
+        <id>dev</id>
+        <properties>
+            <env>dev</env>
+        </properties>
+        <build>
+            <filters>
+                <filter>src/main/resources/application-dev.properties</filter>
+            </filters>
+        </build>
+    </profile>
+
+    <profile>
+        <id>build</id>
+        <properties>
+            <env>build</env>
+        </properties>
+        <build>
+            <filters>
+                <filter>src/main/resources/application-build.properties</filter>
+            </filters>
+        </build>
+    </profile>
+</profiles>
 
 </project>
